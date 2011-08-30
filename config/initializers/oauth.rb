@@ -15,10 +15,24 @@ Bibapp::Application.config.oauth_config =
       nil
     end
 
+Bibapp::Application.config.oaenv_config =
+    if File.exists?(File.join(Rails.root, 'config', 'oaenv.yml'))
+      YAML.load_file(File.join(Rails.root, 'config', 'oaenv.yml'))
+    else
+      nil
+    end
+
+
 Rails.application.config.middleware.use OmniAuth::Builder do
   if Bibapp::Application.config.oauth_config
     Bibapp::Application.config.oauth_config.each do |k, v|
       provider k, v['key'], v['secret']
     end
   end
+  if Bibapp::Application.config.oaenv_config
+    Bibapp::Application.config.oaenv_config.each do |k|
+      provider k
+    end
+  end
+
 end

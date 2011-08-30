@@ -63,7 +63,10 @@ gem 'acts_as_tree', "~> 1.2.3", :git => 'https://github.com/parasew/acts_as_tree
 #production, for example. Note that the appropriate database for your
 #set up does need to be specified here, though, or things will fail
 #pretty quickly.
-gem 'pg'
+#gem 'pg'
+gem 'mysql'
+#gem 'mysql2', '< 0.3'
+gem 'mysql2'
 
 #dump database in YAML form - honestly, I'm not sure why we need this, but
 #while I am porting to Rails 3 I'm not going to worry about it.
@@ -75,6 +78,7 @@ gem 'authorization'
 #authentication
 gem 'authlogic'
 gem 'omniauth'
+gem 'oa-env'
 
 #batch loading of authors
 gem 'fastercsv'
