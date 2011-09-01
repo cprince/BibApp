@@ -104,6 +104,9 @@ group :development do
 #  end
 end
 
+#For apache server
+gem 'passenger'
+
 group :test, :development do
   gem 'rspec'
   gem 'rspec-rails'
