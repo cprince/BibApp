@@ -54,6 +54,7 @@ GEM
       htmlentities
       ruby-nuggets (>= 0.3.3)
     columnize (0.3.4)
+    daemon_controller (0.2.6)
     daemons (1.0.10)
     database_cleaner (0.6.7)
     delayed_job (2.1.4)
@@ -73,6 +74,7 @@ GEM
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
     fastercsv (1.5.4)
+    fastthread (1.0.7)
     haml (3.1.2)
     highline (1.6.2)
     hpricot (0.8.4)
@@ -142,6 +144,11 @@ GEM
       oa-more (= 0.2.6)
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
+    passenger (3.0.9)
+      daemon_controller (>= 0.2.5)
+      fastthread (>= 1.0.1)
+      rack
+      rake (>= 0.8.1)
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -240,6 +247,7 @@ DEPENDENCIES
   namecase (~> 1.1.0)
   oa-env
   omniauth
+  passenger
   rails (= 3.0.4)
   rake
   rcov
