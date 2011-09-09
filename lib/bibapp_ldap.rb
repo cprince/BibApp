@@ -46,7 +46,8 @@ class BibappLdap
     #ldap.search(:filter => cn_filt | uid_filt | mail_filt).collect do |entry|
     sn_filt = Net::LDAP::Filter.eq("#{self.config['sn']}", "#{query}")
     uid_filt = Net::LDAP::Filter.eq("#{self.config['uid']}", "#{query}")
-    ldap.search(:filter => sn_filt | uid_filt ).collect do |entry|
+    faculty_filt = Net::LDAP::Filter.eq("isfaculty", "TRUE")
+    ldap.search(:filter => (sn_filt | uid_filt) & faculty_filt ).collect do |entry|
       clean(entry)
     end
   rescue BibappLdapError => e
